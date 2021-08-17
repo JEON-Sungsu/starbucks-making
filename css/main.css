@@ -1,11 +1,11 @@
 /* COMMON */
 body {
+  height: 100vh;
   color: #333;
   font-size:16px;
   font-weight: 400;
   line-height: 1.4; 
   font-family: 'Nanum Gothic', sans-serif;
-  height: 3000px;
 }
 /* 위의 폰트사이즈,웨이트,라인헤이트등이 굉장히 표준적인 값임 */
 
@@ -23,6 +23,67 @@ a {
   position: relative;
 }
 
+.btn {
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: block;
+  transition: .4s;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn.btn--reverse {
+ background-color: #333;
+ color: #fff;
+}
+
+.btn.btn--reverse:hover {
+  background-color: transparent;
+  color:#333;
+}
+
+.btn.btn--brown {
+  color:#592b18;
+  border-color:#592b18;
+}
+
+.btn.btn--brown:hover {
+  color:#fff;
+  background-color: #592b18;
+}
+
+.btn.btn--gold {
+  color:#D9AA8A;
+  border-color:#D9AA8A;
+}
+
+.btn.btn--gold:hover {
+  color:#fff;
+  background-color: #D9AA8A;
+}
+
+.btn.btn--white {
+  color:#fff;
+  border-color:#fff;
+}
+
+.btn.btn--white:hover{
+  color:#333;
+  background-color: #fff;
+}
+
+
 
 
 
@@ -34,6 +95,8 @@ header {
   background-color: #f6f5f0;
   border-bottom: 1px sold #c8c8c8;
   position: fixed;
+  top: 0;
+  z-index: 9;
 }
 
 header > .inner {
@@ -230,3 +293,65 @@ header .badges .badge {
   cursor:pointer;
 }
 /* 박스 셰도우 x축이동값 y축이동값 블러정도  */
+
+
+/* VISUAL */
+.visual {
+  margin-top: 120px;
+  background-image: url("../images/visual_bg.jpg");
+  background-position: center;
+}
+
+/* header가 fixed 이고 높이가 120px 이기에 마직탑 120을 주는거다. */
+
+.visual .inner {
+  height: 646px;
+}
+
+.visual .title {
+  position: absolute;
+  top: 88px;
+  left: -10px;
+}
+
+.visual .title .btn {
+  position:absolute;
+  top: 259px;
+  left:173px;
+}
+
+
+.visual .cup1.image {
+  position: absolute;
+  bottom: 0;
+  right: -47px;
+}
+
+.visual .cup1.text {
+  position:absolute;
+  top: 38px;
+  right: 171px;
+}
+
+.visual .cup2.image {
+  position:absolute;
+  bottom: 0;
+  right: 162px;
+}
+
+.visual .cup2.text {
+  position: absolute;
+  top: 321px;
+  right: 416px;
+}
+
+.visual .spoon {
+  position:absolute;
+  bottom: 0;
+  left: 275px;
+}
+
+.visual .fade-in {
+  opacity:0;
+}
+
