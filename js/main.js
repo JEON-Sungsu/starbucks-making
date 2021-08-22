@@ -84,3 +84,14 @@ fadeEls 에 반환시켜라.
 한번씩 반복할때 마다, 해당 배열(요소)의 인덱스 넘버에 1을 더한 후 0.7초만큼 곱한 delay  를 주어라
 그리하면 첫번째 요소의 인덱스는 0 이므로 0.7 두번째는 1+1*0.7 = 1.4초 세번째는 2+1*0.7 = 2.1초
 이런식으로 각각의 요소에 적용되는 delay가 달라지므로 순서대로 등장하게 된다. */
+
+
+new Swiper('.notice-line .swiper-container', {
+  direction: 'vertical',
+  autoplay: true,
+  loop: true
+});
+
+// new Swiper(선택자,옵션) notice-line 의 swiper-container 를 찾아서 옵션의 내용을 실행시켜라
+// swiper 라이브러리를 사용하는 함수임
+// autoplay = 자동재생, loop= 반복재생여부
