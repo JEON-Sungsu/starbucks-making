@@ -95,3 +95,23 @@ new Swiper('.notice-line .swiper-container', {
 // new Swiper(선택자,옵션) notice-line 의 swiper-container 를 찾아서 옵션의 내용을 실행시켜라
 // swiper 라이브러리를 사용하는 함수임
 // autoplay = 자동재생, loop= 반복재생여부
+
+new Swiper('.promotion .swiper-container', {
+  slidesPerView: 3, //한번에 보여줄 슬라이드 개수
+  spaceBetween: 10, //슬라이드 사이의 여백
+  centeredSlides: true, //1번 슬라이드가 가운데 보이기
+  loop: true,
+  /*autoplay: {
+    delay: 5000 //0.5초에 한번씩 슬라이드가 넘어감. 기본값은 3초임 
+  }*/
+  pagination: { 
+    el: '.promotion .swiper-pagination', //페이지 번호 요소 선택자
+    clickable: true //사용자의 페이지 번호 요소 제어 버튼
+  },
+  navigation: {
+    prevEl: '.promotion .swiper-prev', // 이전 요소를 볼 수 있는 버튼링크
+    nextEl: '.promotion .swiper-next' // 다음 요소를 볼 수 있는 버튼링크. 
+  }
+})
+
+// direction: horizontal 은 기본옵션임 
