@@ -115,3 +115,19 @@ new Swiper('.promotion .swiper-container', {
 })
 
 // direction: horizontal 은 기본옵션임 
+
+const promotionEl = document.querySelector('.promotion')
+const promotionToggleBtn = document.querySelector('.toggle-promotion')
+let isHidePromotion = false; //isHidePromotion 요소가 숨겨져있니? false 아니!
+
+promotionToggleBtn.addEventListener('click',function() {
+  isHidePromotion = !isHidePromotion //느낌표가 붙어있는 뒤의 값이 반대가 되도록 만들어라
+  if (isHidePromotion) {
+    promotionEl.classList.add('hide');
+  } else {
+    promotionEl.classList.remove('hide');
+  }
+});
+
+/* 프로모션토글버튼이 클릭되면, isHidePromotion이라는 변수에 반대값을 넣어라. 그리고
+if (그값이트루면) 다음동작을 실행시키고 else 그값이 펄스면 다음동작을 처리해줘라 */
