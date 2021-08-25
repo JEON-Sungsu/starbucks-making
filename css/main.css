@@ -646,3 +646,11 @@ top 50%, margin-top: calc(1920px * 9 / 16 / -2) 의 공식이 들어가게 된�
   width: 100%;
   height: 100%;
 }
+
+#player {
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+}
