@@ -112,7 +112,7 @@ new Swiper('.promotion .swiper-container', {
     prevEl: '.promotion .swiper-prev', // 이전 요소를 볼 수 있는 버튼링크
     nextEl: '.promotion .swiper-next' // 다음 요소를 볼 수 있는 버튼링크. 
   }
-})
+});
 
 // direction: horizontal 은 기본옵션임 
 
