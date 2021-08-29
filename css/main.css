@@ -1,6 +1,6 @@
 /* COMMON */
 body {
-  height: 100vh;
+
   color: #333;
   font-size:16px;
   font-weight: 400;
@@ -83,6 +83,50 @@ a {
   background-color: #fff;
 }
 
+.back-to-position {
+  opacity: 0;
+  transition: 1s;
+}
+
+.back-to-position.to-right {
+  transform:translateX(-150px);
+}
+
+.back-to-position.to-left {
+  transform:translateX(150px);
+}
+
+.show .back-to-position {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 
+1. 백투포지션 클래스를 가진 애들을 일단 안보이게 해둔다.
+2. 뷰포트상 왼쪽에 있는 요소들은 왼쪽으로 -150px 치우고 오른쪽에 있는 애들은
+오른쪽으로 150px 치워둔채로 opacity 0 의 상태로 존재한다.
+3. 그러다 scrollMagic 라이브러리를 통해서, 뷰포트상 스크롤이 일어났을 때,
+해당 요소가 특정위치까지 오면 show 라는 클래스를 추가해주고, 이게 추가되었을때
+opacity 1값을 통해 요소들이 등장함과 동시에 transform: translateX(0) 값을 통해
+좌우로 150픽셀씩 밀려나있던 애들이 다시 1초에 걸쳐서 원래자리로 돌아오게 된다.
+4. 아래의 딜레이값을 안주면 전부 동시에 등장해서 재미 없으니 요소별 딜레이를 줘서
+순차적으로 돌아올 수 있도록 만들어주면 좋다.  */
+
+.show .back-to-position.delay-0 {
+  transition-delay: 0s;
+}
+
+.show .back-to-position.delay-1 {
+  transition-delay: 0.3s;
+}
+
+.show .back-to-position.delay-2 {
+  transition-delay: 0.6s;
+}
+
+.show .back-to-position.delay-3 {
+  transition-delay: 0.9s;
+}
 
 
 
@@ -653,4 +697,272 @@ top 50%, margin-top: calc(1920px * 9 / 16 / -2) 의 공식이 들어가게 된�
   position:absolute;
   top: 0;
   left: 0;
+}
+
+.youtube .inner {
+  height: 700px;
+}
+
+.youtube .floating1 {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+
+.youtube .floating2 {
+  position:absolute;
+  top: 350px;
+  left:150px;
+}
+
+
+
+/* SEASON PROEUCT */
+.season-product{
+  background-image: url("../images/season_product_bg.jpg");
+}
+
+.season-product .inner {
+  height: 400px;
+}
+
+.season-product .floating3 {
+  position: absolute;
+  top:-200px;
+  right: 0;
+} 
+
+.season-product .text-group {
+  position:absolute;
+  top: 110px;
+  right: 100px;
+}
+
+.season-product .text-group .title {
+  margin-bottom: 10px;
+}
+
+.season-product .text-group .description {
+  margin-bottom: 15px;
+}
+
+.season-product .text-group .more {
+
+}
+
+/* RESERVE COFFEE */
+
+.reserve-coffee {
+  background-image: url("../images/reserve_bg.jpg");
+}
+
+.reserve-coffee .inner {
+  height: 400px;
+}
+
+.reserve-coffee .reserve-logo {
+  position: absolute;
+  top:110px;
+  left: 0;
+}
+
+.reserve-coffee .text-group {
+  position:absolute;
+  top:124px;
+  left: 208px;
+}
+
+.reserve-coffee .product {
+  position:absolute;
+  top: 0;
+  right: 0;
+}
+
+
+/* <!-- PICK YOUR FAVORITE --> */
+.pick-your-favorite {
+  background-image: url('../images/favorite_bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.pick-your-favorite .inner {
+  padding: 110px 0;
+}
+
+.pick-your-favorite .text-group {
+  margin-left: 100px;
+  width: 362px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: flex-end;
+}
+
+.pick-your-favorite .text-group .title {
+  margin-bottom: 40px;
+}
+
+.pick-your-favorite .text-group .description {
+  margin-bottom: 40px;
+}
+
+
+/* RESERVE STORE */
+.reserve-store {
+  background-image: url('../images/reserve_store_bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.reserve-store .inner {
+  height:600px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reserve-store .medal {
+  width: 334px;
+  height:334px;
+  perspective: 600px;
+}
+
+.reserve-store .medal .front,
+.reserve-store .medal .back {
+  width: 334px;
+  height: 334px;
+  backface-visibility: hidden;
+  transition: 1s;
+  position: absolute;
+}
+
+.reserve-store .medal .front {
+  
+  transform: rotateY(0deg);
+}
+
+.reserve-store .medal:hover .front {
+  transform: rotateY(180deg);
+}
+
+.reserve-store .medal .back {
+  transform: rotateY(-180deg);
+
+}
+
+.reserve-store .medal:hover .back {
+  transform: rotateY(0deg);
+}
+
+.reserve-store .medal .back .btn {
+  position: absolute;
+  top:240px;
+  left:0;
+  right:0;
+  margin: auto;
+}
+
+
+/* FIND THE STORE */
+
+.find-store {
+  background-image: url('../images/find_store_bg.jpg');
+}
+
+.find-store .inner {
+  height: 400px;
+}
+
+.find-store .inner .texture1 {
+  position: absolute;
+  top:0;
+  left:400px;
+}
+
+.find-store .inner .texture2 {
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+.find-store .inner .picture {
+  position:absolute;
+  border-radius: 50%;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.5);
+}
+
+.find-store .inner .picture1 {
+  top:-60px;
+  left:0;
+}
+
+.find-store .inner .picture2 {
+  top:150px;
+  left:250px;
+}
+
+.find-store .inner .text-group {
+  position:absolute;
+  top:120px;
+  left:550px;
+}
+
+.find-store .inner .text-group .title {
+  margin-bottom: 20px;
+}
+
+.find-store .inner .text-group .description {
+  margin-bottom: 20px;
+}
+
+/* AWARDS */
+
+.awards {
+  background-color: #272727;
+}
+
+.awards .inner {
+  padding: 40px 0;
+}
+
+.awards .swiper-container {
+  width: 100%;
+  height: 40px;
+}
+
+.awards .swiper-prev,
+.awards .swiper-next {
+  width:42px;
+  height:42px;
+  border:2px solid #fff;
+  border-radius: 50%;
+  outline:none;
+  color:#fff;
+  opacity:0.3;
+  cursor:pointer;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  top:0;
+  bottom:0;
+  margin:auto;
+}
+
+.awards .swiper-prev {
+  left:-100px;
+}
+
+.awards .swiper-next {
+  right:-100px;
+}
+
+.awards .swiper-prev:hover,
+.awards .swiper-next:hover {
+  background-color: #fff;
+  color:#333;
 }

@@ -116,6 +116,22 @@ new Swiper('.promotion .swiper-container', {
 
 // direction: horizontal 은 기본옵션임 
 
+new Swiper('.awards .swiper-container', {
+  autoplay:true,
+  loop:true,
+  spaceBetween: 30,
+  slidesPerView: 5,    //하나의 화면에 몇개의 슬라이드를 보일거냐
+  navigation: {
+    prevEl: '.awards .swiper-prev',
+    nextEl: '.awards .swiper-next'
+  }
+});
+
+
+
+
+
+
 const promotionEl = document.querySelector('.promotion')
 const promotionToggleBtn = document.querySelector('.toggle-promotion')
 let isHidePromotion = false; //isHidePromotion 요소가 숨겨져있니? false 아니!
@@ -131,3 +147,41 @@ promotionToggleBtn.addEventListener('click',function() {
 
 /* 프로모션토글버튼이 클릭되면, isHidePromotion이라는 변수에 반대값을 넣어라. 그리고
 if (그값이트루면) 다음동작을 실행시키고 else 그값이 펄스면 다음동작을 처리해줘라 */
+
+// 범위 랜덤 함수(소수점 2자리까지)
+function random(min, max) {
+  // `.toFixed()`를 통해 반환된 문자 데이터를,
+  // `parseFloat()`을 통해 소수점을 가지는 숫자 데이터로 변환
+  return parseFloat((Math.random() * (max - min) + min).toFixed(2))
+}
+
+
+
+function floatingObject (selector, delay, size) {
+  //gsap.to(요소, 시간, 옵션);
+  gsap.to(selector, random(1.5, 2.5), {
+    y: size, //Y축으로 얼마나 움직일거냐 floatingObject의 인수를 값으로 받는거임. 아래에 함수호출에 3번째 자리.
+    repeat: -1, //무한반복 지삽에서 제공하는 기능임 
+    yoyo: true, //반복한걸 역으로 재생시켜줌. 원래 반보갛면 1에서 10까지 갔다가 다시 1로돌아오는데 10에서 1로 돌아오는 구간을 만들어주는것임
+    duration: 2.5, 
+    ease: "power1.inOut",
+    delay: random(0, delay) //위에 선언된 함수를 값으로 받고, 그 함수의 매개변수의 최소값은 0이고 최대값은 floatingObject의 두번째 인수인 delay로 받음
+  });
+
+}
+
+floatingObject('.floating1', 1, 15);
+floatingObject('.floating2', .5, 15);
+floatingObject('.floating3', 1.5, 20);
+
+
+const spyEls = document.querySelectorAll('section.scroll-spy');
+spyEls.forEach(function(spyEl) {
+  new ScrollMagic
+    .Scene({
+      triggerElement:spyEl, //보여짐 여부를 감시할 요소를 지정
+      triggerHook: 0.8, //뷰포트의 어떤 지점에서 감시되었는지를 판단하는지 옵션이다. 뷰포트의 제일 상단이 0이고 제일 하단이 1이다.
+    })
+    .setClassToggle(spyEl, 'show')
+    .addTo(new ScrollMagic.Controller()); //매소드 체이닝
+});
