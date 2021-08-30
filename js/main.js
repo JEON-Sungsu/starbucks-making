@@ -29,7 +29,7 @@ searchInputEl.addEventListener('blur',function(){
 
 
 const badgeEl = document.querySelector('header .badges');
-
+const toTopEl = document.querySelector('#to-top');
 /* window.addEventListener('scroll', function(){
   console.log('scroll!!');
 }) */
@@ -46,14 +46,30 @@ window.addEventListener('scroll', _.throttle(function() {
       opacity: 0,
       display: 'none'
     });
+    //버튼보이기
+    gsap.to(toTopEl, 0.2, {
+      x: 0, //x축으로 원래의 자리로 돌리겠다.
+    });
+
   } else {
     //배지 보이기 
     gsap.to(badgeEl, .6, {
       opacity: 1,
       display: 'block'
     });
+    //버튼 숨기기
+    gsap.to(toTopEl, 0.2, {
+      x: 100, //x축으로 100픽셀 움직이게 만들겠다.
+    });
   }
 }, 300));
+
+
+ toTopEl.addEventListener('click', function (){
+   gsap.to(window, .7, {
+     scrollTo: 0 //최상단으로 화면을 옮겨라. 이게 gsap의 플러그인을 사용하는 이유임. 
+   });
+ });
 
 /* 300은 0.3초를 의미한다. 로데쉬에서 제공하는 특정한 기능을 통해, 스크롤을 하면 무한대로
 실행되는 함수에다가 0.3초마다 쓰로틀링을 주는 기능이다.
@@ -185,3 +201,7 @@ spyEls.forEach(function(spyEl) {
     .setClassToggle(spyEl, 'show')
     .addTo(new ScrollMagic.Controller()); //매소드 체이닝
 });
+
+
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear(); //매년 자동으로 갱신되는 연도를 삽입
